@@ -5,6 +5,7 @@
 	<h1><%= image.get('name') %></h2>
 
 	<% for part in image.get('parts'): %>
+
 		<h2><%= part.position %></h2>
 	<% end %>
 
