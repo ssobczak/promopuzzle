@@ -1,16 +1,18 @@
 class PartsController < ApplicationController
 	respond_to :json
 
+	before_filter :verify_ownership, :only => [:update, :destory]
+
 	def index
-		respond_with Part.all
+		respond_with Part.where(user_id: user.id)
 	end
 
 	def show
-		respond_with Part.find(params[:id])
+		respond_with Part.where(user_id: user.id, id: params[:id]).first
 	end
 
 	def create
-		respond_with Part.create(part_params)
+		respond_with Part.create(part_params.merge(user: user))
 	end
 
 	def update
@@ -18,10 +20,16 @@ class PartsController < ApplicationController
 	end
 
 	def destroy
+
 		respond_with Part.destroy(params[:id])
 	end
 
-	 def part_params
+ 	def part_params
     params.require(:part).permit(:name, :title)
   end
+
+  def verify_ownership
+		part = Part.where(user_id: user.id, id: params[:id]).first
+		render :text => "unauthorized", :status => :unauthorized unless part
+	end
 end

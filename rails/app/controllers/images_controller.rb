@@ -3,7 +3,7 @@ class ImagesController < ApplicationController
 
 	def index
 		images = Image.all.map do |img| 
-			img.attributes.merge!(parts: img.part)
+			img.attributes.merge(parts: img.parts.where(user: user))
 		end
 
 		respond_with images

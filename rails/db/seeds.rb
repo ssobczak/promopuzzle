@@ -1,18 +1,11 @@
-sg = Image.create!(name: "starbucks_green", title: "Starbucks green")
-sb = Image.create!(name: "starbucks_blue", title: "Starbucks blue")
-sr = Image.create!(name: "starbucks_red", title: "Starbucks red")
+images = [
+	Image.create!(name: "starbucks_green", title: "Starbucks green"),
+	Image.create!(name: "starbucks_blue", title: "Starbucks blue"),
+	Image.create!(name: "starbucks_red", title: "Starbucks red")
+]
 
-Part.create!(position: 1, image: sg)
-Part.create!(position: 1, image: sg)
-Part.create!(position: 3, image: sg)
-Part.create!(position: 5, image: sg)
+u1 = User.create!(name: "Jozin")
+15.times { Part.create!(user: u1, position: rand(9), image: images[rand(3)]) }
 
-Part.create!(position: 1, image: sg)
-Part.create!(position: 2, image: sg)
-Part.create!(position: 3, image: sg)
-Part.create!(position: 4, image: sg)
-Part.create!(position: 5, image: sg)
-Part.create!(position: 6, image: sg)
-Part.create!(position: 7, image: sg)
-Part.create!(position: 8, image: sg)
-Part.create!(position: 9, image: sg)
+u2 = User.create!(name: "Maryna")
+20.times { Part.create!(user: u2, position: rand(9), image: images[rand(3)]) }
