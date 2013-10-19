@@ -6,5 +6,10 @@ class Promopuzzle.Views.ImagesIndex extends Backbone.View
   	@collection.on('sync', @render)
 
   render: =>
-  	$(@el).html(@template(images: @collection))
+  	$(@el).html(@template(images: @collection))  	
+  	@test(a) for a in @collection
   	this
+
+
+  test: (a) => 
+  	console.log('a')	

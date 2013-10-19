@@ -5,7 +5,7 @@ class Promopuzzle.Routers.Images extends Backbone.Router
 
 	initialize: ->
 		@collection = new Promopuzzle.Collections.Images()
-		@collection.fetch()
+		@collection.fetch({ data: $.param({ user_id: 1}) })
 
 	index: =>
 		view = new Promopuzzle.Views.ImagesIndex(collection: @collection)

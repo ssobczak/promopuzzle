@@ -1,5 +1,20 @@
-<ul>
-	<% for img in @images.models: %>
-		<li><%= img.get('name') %></li>
+<div class='image'>
+
+<% for img in @images.models: %>
+
+	<h1><%= img.get('name') %></h2>
+
+	<% for i in [0..9]: %>
+
+		<% if i%3 == 0 : %>
+        	<div class='row'>
+        <% end %>	
+
 	<% end %>
-</ul>
+
+
+
+<% end %>
+
+</div>
+
