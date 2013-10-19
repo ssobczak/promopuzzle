@@ -3,10 +3,11 @@ class Promopuzzle.Views.ImageIndex extends Backbone.View
   template: JST['image/index']
 
   initialize: ->
-  	console.log('init image template')
+  	@collection.cparts.on('sync', @render)
 
   render: =>
-  	$(@el).html('IMAGE TEMPLATE')  	
+  	console.log(@collection)
+  	$(@el).html(@template(image: @collection)) 
   	this
 
 

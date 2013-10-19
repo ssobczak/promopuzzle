@@ -28,15 +28,41 @@
     <body>
         <div class="app">
             <h1>PhoneGap</h1>
+            <div data-bind="text: Title"></div>
+            <a href="javascript:void(0)" data-bind="click: DoSomething">DO SOMETHING!</a>
             <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
             </div>
+            <div class="polska"></div>
         </div>
         <script type="text/javascript" src="phonegap.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+        <script type="text/javascript" src="js/knockout-2.3.0.js"></script>
+        
         <script type="text/javascript">
-            app.initialize();
+
+
+            
+ function testModel() {
+    var self = this;
+
+    self.Title = ko.observable('Test knockout!');
+
+    self.DoSomething = function() {
+        console.log('something!');
+        $('.polska').append('!!! :)');
+    };
+};
+
+        
+            document.addEventListener('deviceready', function() {
+                   var viewModel = new testModel();
+                    ko.applyBindings(viewModel, $('.app')[0]);
+            }, false);
+         
+
+
         </script>
     </body>
 </html>

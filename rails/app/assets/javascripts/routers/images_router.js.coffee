@@ -11,22 +11,18 @@ class Promopuzzle.Routers.Images extends Backbone.Router
 	    })
 
 	index: =>
-		view = new Promopuzzle.Views.ImagesIndex(collection: @collection)
-		$("#container").html(view.render().el)
+		$("#container").html('')
 
 	fetchParts: => 
 		@collection.each((image) -> 
-			console.log('X')
-			image.parts = new Promopuzzle.Collections.Parts()
-			image.parts.fetch({ 
-				data: $.param({ user_id: 1, image_id : image.get('id') }),
+			image.cparts = new Promopuzzle.Collections.Parts()
+			image.cparts.fetch({ 
+				data: $.param({ user_id: 1, image_id: image.get('id') }),
 				success: =>
-					console.log('draw')
-					view = new Promopuzzle.Views.ImageIndex(image: image)
+					view = new Promopuzzle.Views.ImageIndex(collection: image)
 					$("#container").append(view.render().el);
 			})
-		)		
-
+		)
 
 	drawImage: =>
 			console.log('draw')
