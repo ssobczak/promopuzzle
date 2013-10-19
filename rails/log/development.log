@@ -1351,3 +1351,319 @@ Started GET "/api/images" for 127.0.0.1 at 2013-10-19 15:49:07 +0200
 Processing by ImagesController#index as JSON
   [1m[36mImage Load (0.2ms)[0m  [1mSELECT "images".* FROM "images"[0m
 Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.2ms)
+  [1m[36mPart Load (0.1ms)[0m  [1mSELECT "parts".* FROM "parts" ORDER BY "parts"."id" DESC LIMIT 1[0m
+  [1m[35mPart Load (0.4ms)[0m  SELECT "parts".* FROM "parts"
+  [1m[36m (22.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (15.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateImages (20131019131223)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "title" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131019131223"]]
+  [1m[36m (17.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateParts (20131019131324)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "parts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "image_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_parts_on_image_id" ON "parts" ("image_id")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20131019131324"]]
+  [1m[35m (15.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (2.4ms)[0m  [1mINSERT INTO "images" ("created_at", "name", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 19 Oct 2013 14:00:17 UTC +00:00], ["name", "starbucks_green"], ["title", "Starbucks green"], ["updated_at", Sat, 19 Oct 2013 14:00:17 UTC +00:00]]
+  [1m[35m (22.1ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "images" ("created_at", "name", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00], ["name", "starbucks_blue"], ["title", "Starbucks blue"], ["updated_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00]]
+  [1m[36m (17.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "images" ("created_at", "name", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00], ["name", "starbucks_red"], ["title", "Starbucks red"], ["updated_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00]]
+  [1m[35m (14.8ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "parts" ("created_at", "image_id", "position", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00], ["image_id", 1], ["position", 1], ["updated_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00]]
+  [1m[36m (29.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "parts" ("created_at", "image_id", "position", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00], ["image_id", 1], ["position", 1], ["updated_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00]]
+  [1m[35m (30.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "parts" ("created_at", "image_id", "position", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00], ["image_id", 1], ["position", 3], ["updated_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00]]
+  [1m[36m (28.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "parts" ("created_at", "image_id", "position", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00], ["image_id", 1], ["position", 5], ["updated_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00]]
+  [1m[35m (19.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "parts" ("created_at", "image_id", "position", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00], ["image_id", 1], ["position", 1], ["updated_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00]]
+  [1m[36m (16.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "parts" ("created_at", "image_id", "position", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00], ["image_id", 1], ["position", 2], ["updated_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00]]
+  [1m[35m (14.1ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "parts" ("created_at", "image_id", "position", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00], ["image_id", 1], ["position", 3], ["updated_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00]]
+  [1m[36m (15.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "parts" ("created_at", "image_id", "position", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00], ["image_id", 1], ["position", 4], ["updated_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00]]
+  [1m[35m (14.6ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "parts" ("created_at", "image_id", "position", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00], ["image_id", 1], ["position", 5], ["updated_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00]]
+  [1m[36m (17.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "parts" ("created_at", "image_id", "position", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00], ["image_id", 1], ["position", 6], ["updated_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00]]
+  [1m[35m (15.6ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "parts" ("created_at", "image_id", "position", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00], ["image_id", 1], ["position", 7], ["updated_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00]]
+  [1m[36m (33.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "parts" ("created_at", "image_id", "position", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00], ["image_id", 1], ["position", 8], ["updated_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00]]
+  [1m[35m (38.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "parts" ("created_at", "image_id", "position", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00], ["image_id", 1], ["position", 9], ["updated_at", Sat, 19 Oct 2013 14:00:18 UTC +00:00]]
+  [1m[36m (38.1ms)[0m  [1mcommit transaction[0m
+  [1m[36m (21.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (17.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateImages (20131019131223)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "title" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131019131223"]]
+  [1m[36m (40.9ms)[0m  [1mcommit transaction[0m
+Migrating to CreateParts (20131019131324)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "parts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "image_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_parts_on_image_id" ON "parts" ("image_id")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20131019131324"]]
+  [1m[35m (32.0ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.5ms)[0m  INSERT INTO "images" ("created_at", "name", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00], ["name", "starbucks_green"], ["title", "Starbucks green"], ["updated_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00]]
+  [1m[36m (31.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "images" ("created_at", "name", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00], ["name", "starbucks_blue"], ["title", "Starbucks blue"], ["updated_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00]]
+  [1m[35m (33.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "images" ("created_at", "name", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00], ["name", "starbucks_red"], ["title", "Starbucks red"], ["updated_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00]]
+  [1m[36m (31.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "parts" ("created_at", "image_id", "position", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00], ["image_id", 1], ["position", 1], ["updated_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00]]
+  [1m[35m (41.5ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "parts" ("created_at", "image_id", "position", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00], ["image_id", 1], ["position", 1], ["updated_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00]]
+  [1m[36m (39.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "parts" ("created_at", "image_id", "position", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00], ["image_id", 1], ["position", 3], ["updated_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00]]
+  [1m[35m (34.2ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "parts" ("created_at", "image_id", "position", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00], ["image_id", 1], ["position", 5], ["updated_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00]]
+  [1m[36m (35.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "parts" ("created_at", "image_id", "position", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00], ["image_id", 1], ["position", 1], ["updated_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00]]
+  [1m[35m (35.0ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "parts" ("created_at", "image_id", "position", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00], ["image_id", 1], ["position", 2], ["updated_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00]]
+  [1m[36m (32.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "parts" ("created_at", "image_id", "position", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00], ["image_id", 1], ["position", 3], ["updated_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00]]
+  [1m[35m (35.2ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "parts" ("created_at", "image_id", "position", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00], ["image_id", 1], ["position", 4], ["updated_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00]]
+  [1m[36m (36.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "parts" ("created_at", "image_id", "position", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00], ["image_id", 1], ["position", 5], ["updated_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00]]
+  [1m[35m (39.8ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "parts" ("created_at", "image_id", "position", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00], ["image_id", 1], ["position", 6], ["updated_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00]]
+  [1m[36m (34.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "parts" ("created_at", "image_id", "position", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00], ["image_id", 1], ["position", 7], ["updated_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00]]
+  [1m[35m (32.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "parts" ("created_at", "image_id", "position", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00], ["image_id", 1], ["position", 8], ["updated_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00]]
+  [1m[36m (38.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "parts" ("created_at", "image_id", "position", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00], ["image_id", 1], ["position", 9], ["updated_at", Sat, 19 Oct 2013 14:00:31 UTC +00:00]]
+  [1m[35m (40.1ms)[0m  commit transaction
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-19 16:01:02 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MainController#index as HTML
+  Rendered main/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 1433ms (Views: 1400.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-19 16:01:04 +0200
+
+
+Started GET "/assets/images.css?body=1" for 127.0.0.1 at 2013-10-19 16:01:04 +0200
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-10-19 16:01:04 +0200
+
+
+Started GET "/assets/parts.css?body=1" for 127.0.0.1 at 2013-10-19 16:01:04 +0200
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2013-10-19 16:01:04 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-19 16:01:04 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-10-19 16:01:04 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-19 16:01:04 +0200
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2013-10-19 16:01:04 +0200
+
+
+Started GET "/assets/promopuzzle.js?body=1" for 127.0.0.1 at 2013-10-19 16:01:04 +0200
+
+
+Started GET "/assets/images/index.js?body=1" for 127.0.0.1 at 2013-10-19 16:01:04 +0200
+
+
+Started GET "/assets/parts/index.js?body=1" for 127.0.0.1 at 2013-10-19 16:01:04 +0200
+
+
+Started GET "/assets/models/image.js?body=1" for 127.0.0.1 at 2013-10-19 16:01:04 +0200
+
+
+Started GET "/assets/models/part.js?body=1" for 127.0.0.1 at 2013-10-19 16:01:04 +0200
+
+
+Started GET "/assets/collections/images.js?body=1" for 127.0.0.1 at 2013-10-19 16:01:04 +0200
+
+
+Started GET "/assets/collections/parts.js?body=1" for 127.0.0.1 at 2013-10-19 16:01:04 +0200
+
+
+Started GET "/assets/views/images/images_index.js?body=1" for 127.0.0.1 at 2013-10-19 16:01:04 +0200
+
+
+Started GET "/assets/views/parts/parts_index.js?body=1" for 127.0.0.1 at 2013-10-19 16:01:04 +0200
+
+
+Started GET "/assets/routers/images_router.js?body=1" for 127.0.0.1 at 2013-10-19 16:01:04 +0200
+
+
+Started GET "/assets/routers/parts_router.js?body=1" for 127.0.0.1 at 2013-10-19 16:01:04 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-19 16:01:04 +0200
+
+
+Started GET "/api/images.json" for 127.0.0.1 at 2013-10-19 16:01:08 +0200
+Processing by ImagesController#index as JSON
+  [1m[35mImage Load (0.1ms)[0m  SELECT "images".* FROM "images"
+Completed 200 OK in 36ms (Views: 10.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/images.json" for 127.0.0.1 at 2013-10-19 16:04:34 +0200
+Processing by ImagesController#index as JSON
+  [1m[36mImage Load (0.2ms)[0m  [1mSELECT "images".* FROM "images"[0m
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/images.json" for 127.0.0.1 at 2013-10-19 16:14:10 +0200
+Processing by ImagesController#index as JSON
+  [1m[35mImage Load (0.3ms)[0m  SELECT "images".* FROM "images"
+Completed 500 Internal Server Error in 42ms
+
+NoMethodError (undefined method `tags' for #<Image:0x00000002c256a8>):
+  app/controllers/images_controller.rb:5:in `block in index'
+  app/controllers/images_controller.rb:5:in `index'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (21.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (61.9ms)
+
+
+Started GET "/api/images.json" for 127.0.0.1 at 2013-10-19 16:14:21 +0200
+Processing by ImagesController#index as JSON
+  [1m[36mImage Load (0.3ms)[0m  [1mSELECT "images".* FROM "images"[0m
+Completed 500 Internal Server Error in 21ms
+
+NoMethodError (undefined method `parts' for #<Image:0x000000029004a0>):
+  app/controllers/images_controller.rb:5:in `block in index'
+  app/controllers/images_controller.rb:5:in `index'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.5ms)
+
+
+Started GET "/api/images.json" for 127.0.0.1 at 2013-10-19 16:14:25 +0200
+Processing by ImagesController#index as JSON
+  [1m[35mImage Load (0.3ms)[0m  SELECT "images".* FROM "images"
+Completed 500 Internal Server Error in 23ms
+
+NoMethodError (undefined method `part' for #<Image:0x00000002a95338>):
+  app/controllers/images_controller.rb:5:in `block in index'
+  app/controllers/images_controller.rb:5:in `index'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.7ms)
+  [1m[36mImage Load (0.4ms)[0m  [1mSELECT "images".* FROM "images" ORDER BY "images"."id" DESC LIMIT 1[0m
+  [1m[35mImage Load (0.5ms)[0m  SELECT "images".* FROM "images" ORDER BY "images"."id" DESC LIMIT 1
+  [1m[36mImage Load (0.5ms)[0m  [1mSELECT "images".* FROM "images" ORDER BY "images"."id" DESC LIMIT 1[0m
+
+
+Started GET "/api/images.json" for 127.0.0.1 at 2013-10-19 16:15:13 +0200
+Processing by ImagesController#index as JSON
+  [1m[36mImage Load (0.1ms)[0m  [1mSELECT "images".* FROM "images"[0m
+DEPRECATION WARNING: Model.scoped is deprecated. Please use Model.all instead. (called from block in index at /home/ssobczak/Projects/promopuzzle/rails/app/controllers/images_controller.rb:5)
+DEPRECATION WARNING: Model.scoped is deprecated. Please use Model.all instead. (called from block in index at /home/ssobczak/Projects/promopuzzle/rails/app/controllers/images_controller.rb:5)
+DEPRECATION WARNING: Model.scoped is deprecated. Please use Model.all instead. (called from block in index at /home/ssobczak/Projects/promopuzzle/rails/app/controllers/images_controller.rb:5)
+Completed 200 OK in 53ms (Views: 1.0ms | ActiveRecord: 0.7ms)
+  [1m[35mImage Load (0.5ms)[0m  SELECT "images".* FROM "images" ORDER BY "images"."id" DESC LIMIT 1
+  [1m[36mImage Load (0.4ms)[0m  [1mSELECT "images".* FROM "images" ORDER BY "images"."id" DESC LIMIT 1[0m
+  [1m[36mImage Load (0.4ms)[0m  [1mSELECT "images".* FROM "images" ORDER BY "images"."id" DESC LIMIT 1[0m
+  [1m[35mImage Load (0.5ms)[0m  SELECT "images".* FROM "images" ORDER BY "images"."id" DESC LIMIT 1
+  [1m[36mPart Load (45.5ms)[0m  [1mSELECT "parts".* FROM "parts" WHERE "parts"."image_id" = ?[0m  [["image_id", 3]]
+  [1m[35mImage Load (0.5ms)[0m  SELECT "images".* FROM "images" ORDER BY "images"."id" DESC LIMIT 1
+DEPRECATION WARNING: Model.scoped is deprecated. Please use Model.all instead. (called from irb_binding at (irb):3)
+  [1m[36mPart Load (0.3ms)[0m  [1mSELECT "parts".* FROM "parts" WHERE "parts"."image_id" = ?[0m  [["image_id", 3]]
+  [1m[35mImage Load (0.5ms)[0m  SELECT "images".* FROM "images" ORDER BY "images"."id" DESC LIMIT 1
+  [1m[36mPart Load (0.2ms)[0m  [1mSELECT "parts".* FROM "parts" WHERE "parts"."image_id" = ?[0m  [["image_id", 3]]
+  [1m[35mImage Load (0.5ms)[0m  SELECT "images".* FROM "images" ORDER BY "images"."id" DESC LIMIT 1
+  [1m[36mPart Load (0.2ms)[0m  [1mSELECT "parts".* FROM "parts" WHERE "parts"."image_id" = ?[0m  [["image_id", 3]]
+  [1m[35mImage Load (0.5ms)[0m  SELECT "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPart Load (0.4ms)[0m  [1mSELECT "parts".* FROM "parts" WHERE "parts"."image_id" = ?[0m  [["image_id", 1]]
+
+
+Started GET "/api/images.json" for 127.0.0.1 at 2013-10-19 16:18:10 +0200
+Processing by ImagesController#index as JSON
+  [1m[35mImage Load (0.5ms)[0m  SELECT "images".* FROM "images"
+Completed 500 Internal Server Error in 54ms
+
+ActiveModel::MissingAttributeError (can't write unknown attribute `parts'):
+  app/controllers/images_controller.rb:5:in `block in index'
+  app/controllers/images_controller.rb:5:in `index'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.6ms)
+
+
+Started GET "/api/images.json" for 127.0.0.1 at 2013-10-19 16:18:39 +0200
+Processing by ImagesController#index as JSON
+  [1m[36mImage Load (0.1ms)[0m  [1mSELECT "images".* FROM "images"[0m
+Completed 200 OK in 15ms (Views: 10.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/parts.json" for 127.0.0.1 at 2013-10-19 16:18:42 +0200
+Processing by PartsController#index as JSON
+  [1m[35mPart Load (0.1ms)[0m  SELECT "parts".* FROM "parts"
+Completed 200 OK in 92ms (Views: 40.1ms | ActiveRecord: 1.0ms)
