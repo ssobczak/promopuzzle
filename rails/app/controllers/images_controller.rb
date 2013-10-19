@@ -2,7 +2,11 @@ class ImagesController < ApplicationController
 	respond_to :json
 
 	def index
-		respond_with Image.all
+		images = Image.all.map do |img| 
+			img.attributes.merge!(parts: img.part)
+		end
+
+		respond_with images
 	end
 
 	def show
