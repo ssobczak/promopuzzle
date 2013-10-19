@@ -1,0 +1,5 @@
+<ul>
+	<% for img in @images.models: %>
+		<li><%= img.get('name') %></li>
+	<% end %>
+</ul>

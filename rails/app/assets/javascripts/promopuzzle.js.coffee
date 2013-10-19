@@ -4,7 +4,7 @@ window.Promopuzzle =
   Views: {}
   Routers: {}
   initialize: -> 
-  	new Promopuzzle.Routers.Parts()
+  	new Promopuzzle.Routers.Images()
   	Backbone.history.start()
 
 $(document).ready ->
