@@ -325,3 +325,68 @@ Started GET "/assets/routers/parts_router.js?body=1" for 127.0.0.1 at 2013-10-19
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-19 14:45:37 +0200
+  [1m[36m (21.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (32.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateImages (20131019131223)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "title" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131019131223"]]
+  [1m[36m (38.4ms)[0m  [1mcommit transaction[0m
+Migrating to CreateParts (20131019131324)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "parts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "image_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_parts_on_image_id" ON "parts" ("image_id")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20131019131324"]]
+  [1m[35m (31.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/api/images" for 127.0.0.1 at 2013-10-19 15:16:31 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ImagesController#index as HTML
+Completed 406 Not Acceptable in 2ms
+
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  app/controllers/images_controller.rb:5:in `index'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.6ms)
+
+
+Started GET "/api/images" for 127.0.0.1 at 2013-10-19 15:16:55 +0200
+
+ActionController::RoutingError (undefined method `responds_to' for ImagesController:Class):
+  app/controllers/images_controller.rb:2:in `<class:ImagesController>'
+  app/controllers/images_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (22.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (45.4ms)
+
+
+Started GET "/api/images.json" for 127.0.0.1 at 2013-10-19 15:17:02 +0200
+Processing by ImagesController#index as JSON
+  [1m[35mImage Load (0.1ms)[0m  SELECT "images".* FROM "images"
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (9.7ms)[0m  [1mINSERT INTO "images" ("created_at", "name", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 19 Oct 2013 13:20:14 UTC +00:00], ["name", "starbucks_green"], ["title", "Starbucks green"], ["updated_at", Sat, 19 Oct 2013 13:20:14 UTC +00:00]]
+  [1m[35m (21.4ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "images" ("created_at", "name", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Sat, 19 Oct 2013 13:20:14 UTC +00:00], ["name", "starbucks_blue"], ["title", "Starbucks blue"], ["updated_at", Sat, 19 Oct 2013 13:20:14 UTC +00:00]]
+  [1m[36m (17.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "images" ("created_at", "name", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 19 Oct 2013 13:20:14 UTC +00:00], ["name", "starbucks_red"], ["title", "Starbucks red"], ["updated_at", Sat, 19 Oct 2013 13:20:14 UTC +00:00]]
+  [1m[35m (14.3ms)[0m  commit transaction
+
+
+Started GET "/api/images.json" for 127.0.0.1 at 2013-10-19 15:20:18 +0200
+Processing by ImagesController#index as JSON
+  [1m[36mImage Load (0.1ms)[0m  [1mSELECT "images".* FROM "images"[0m
+Completed 200 OK in 13ms (Views: 9.8ms | ActiveRecord: 0.5ms)
