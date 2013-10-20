@@ -15,6 +15,7 @@ td.bottom {
 img.logo {
 	width: 280px;
 	height: 280px;
+	padding: 20px 10px;
 }
 
 div.cell {

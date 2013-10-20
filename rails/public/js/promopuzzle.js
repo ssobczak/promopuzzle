@@ -16,6 +16,10 @@ function PromoPuzzle(serverUrl, userId) {
 
     self.TotalPuzzles = ko.observable(0);
 
+    self.ShowMenu = function () {
+    	self.ToStage('menu');
+    }
+
 	self.ShowPuzzles = function() {
 		console.log(self.Url('api/images.json', {user_id: self.UserId()}))
 		$.ajax({
@@ -38,8 +42,8 @@ function PromoPuzzle(serverUrl, userId) {
 
 			self.TotalPuzzles(totalPuzzles);
 			self.Puzzles(temp);
-
-			self.ToStage('images');
+debugger;
+			self.ToStage('images2');
 		}).fail(function( jqXHR, textStatus, errorThrown ) {
 			console.log(jqXHR.responseText)
 			console.log(jqXHR.responseXML)

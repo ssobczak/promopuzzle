@@ -21,20 +21,17 @@
                 </div>
                 <div class="row">
                     <div class="span9 cell">
-                        <img src="img/min_logo_1.gif" class="logo" data-bind='click: ShowPuzzles'> 
-                        <img src="img/min_logo_5.gif" class="logo" data-bind='click: ShowPuzzles'> 
+                        <img src="img/min_logo_1.gif" class="logo" data-bind='click: ShowPuzzles'> <img src="img/min_logo_5.gif" class="logo" data-bind='click: ShowPuzzles'>
                     </div>
                 </div>
                 <div class="row">
                     <div class="span9 cell">
-                        <img src="img/min_logo_3.gif" class="logo" data-bind='click: ShowPuzzles'> 
-                        <img src="img/min_logo_4.gif" class="logo" data-bind='click: ShowPuzzles'> 
+                        <img src="img/min_logo_3.gif" class="logo" data-bind='click: ShowPuzzles'> <img src="img/min_logo_4.gif" class="logo" data-bind='click: ShowPuzzles'>
                     </div>
-                </div>                
+                </div>
                 <div class="row">
                     <div class="span9 cell">
-                        <img src="img/min_logo_6.gif" class="logo" data-bind='click: ShowPuzzles'> 
-                        <img src="img/min_logo_2.gif" class="logo" data-bind='click: ShowPuzzles'> 
+                        <img src="img/min_logo_6.gif" class="logo" data-bind='click: ShowPuzzles'> <img src="img/min_logo_2.gif" class="logo" data-bind='click: ShowPuzzles'>
                     </div>
                 </div>
             </div>
@@ -52,7 +49,33 @@
                 </div><!-- /ko -->
             </div>
             <div class="qr">
-                <div id="qr_image"></div>
+                <div class="row">
+                    <img src="img/two_back.gif" width="720" height="96" alt="" data-bind='click: ShowPuzzles'>
+                </div>
+                <div class='span12'>
+                    <div id="qr_image"></div>
+                </div>
+            </div>
+            <div class='images2'>
+                <div class="row">
+                    <img src="img/two_back.gif" width="720" height="96" alt="" data-bind='click: ShowMenu'>
+                </div>
+                <div class="span3">
+                    <div align="center">
+                        <img src="img/two_puz.gif" width="80" height="80" alt="">
+                        <h4>
+                            5/15
+                        </h4>
+                    </div><img src="img/two_white.gif" width="720" height="905" alt="">
+                    <div class="row">
+                        <div class="span2">
+                            <img src="img/two_button_left.gif" width="224" height="200" alt="">
+                        </div>
+                        <div class="span2 offset5">
+                            <img src="img/two_button_right.gif" width="224" height="200" alt="">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div><script type="text/javascript" src="js/jquery-2.0.3.min.js">
 </script><script type="text/javascript" src="js/knockout-2.3.0.js">
@@ -60,18 +83,17 @@
 </script><script type="text/javascript" src="js/promopuzzle.js">
 </script><script type="text/javascript" src="js/qr/qrcode.js">
 </script><script type="text/javascript" src="js/qr/my_qr.js">
-</script><!-- 
-    <script type="text/javascript">
-            var ppz = new PromoPuzzle("http://localhost:3000", 1);
-            ppz.ToStage('menu');
-    </script>
- -->
-        <script type="text/javascript" src="phonegap.js">
 </script><script type="text/javascript">
-document.addEventListener('deviceready', function() {
+var ppz = new PromoPuzzle("http://localhost:3000", 1);
+            ppz.ToStage('menu');
+        </script><!--
+        <script type="text/javascript" src="phonegap.js">
+        </script><script type="text/javascript">
+         document.addEventListener('deviceready', function() {
             var ppz = new PromoPuzzle("http://192.168.42.205:3000", 1);
             ppz.ToStage('menu');
         }, false);
         </script>
+    -->
     </body>
 </html>
