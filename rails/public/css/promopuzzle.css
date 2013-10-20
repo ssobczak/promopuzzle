@@ -31,3 +31,9 @@ div.header {
 	width: 350px;
 	height: 350px;
 }
+
+td {
+  text-align: center;
+  vertical-align: middle;
+  font-size: 35px;
+}

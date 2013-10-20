@@ -64,13 +64,24 @@
                     <div align="center">
                         <img src="img/two_puz.gif" width="80" height="80" alt="">
                         <h4>
-                            5/15
+                        <!-- ko text: TotalPuzzles -->x<!-- /ko -->/15                            
                         </h4>
-                    </div><img src="img/two_white.gif" width="720" height="905" alt="">
+                    </div>
+
+
+
+                <!-- ko foreach: Puzzles -->
+                <div class='image cell span6'>
+                    <table border='2' cellpadding="0" cellspacing="0" style='margin-top: 30px;'>
+                        <tbody data-bind="foreach: MappedPartsRows">
+                            <tr data-bind='foreach: $data'>
+                                <td width="120" height="120" data-bind="click: click, style : { 'background' : 'url('+ imageSource + ') no-repeat', 'background-size' : '100%' }, text: amount > 1 ? (amount + 'x') : '' "></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /ko -->
                     <div class="row">
-                        <div class="span2">
-                            <img src="img/two_button_left.gif" width="224" height="200" alt="">
-                        </div>
                         <div class="span2 offset5">
                             <img src="img/two_button_right.gif" width="224" height="200" alt="" data-bind="click: PokaCycki">
                         </div>
@@ -84,21 +95,21 @@
 </script><script type="text/javascript" src="js/qr/qrcode.js">
 </script><script type="text/javascript" src="js/qr/my_qr.js">
 </script>
-        <!--
+        
             <script type="text/javascript">
 
             var ppz = new PromoPuzzle("http://localhost:3000", 1);
                 ppz.ToStage('menu');
             </script>
-        -->
-
+        
+<!--
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript">
              document.addEventListener('deviceready', function() {
                 var ppz = new PromoPuzzle("http://192.168.42.221:3000", 1);
                 ppz.ToStage('menu');
             }, false);
-        </script>
+        </script>-->
     
     </body>
 </html>

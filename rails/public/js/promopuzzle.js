@@ -78,6 +78,8 @@ function PromoPuzzle(serverUrl, userId) {
 		self.ShowPuzzles();
 	};
 
+	
+
 	self.ImagesMappingOptions = { 
 	    extend: {
 	        "{root}": function(image){
