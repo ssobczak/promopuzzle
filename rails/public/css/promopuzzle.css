@@ -27,7 +27,7 @@ div.header {
 }
 
 
-#qr_image {
+#qr_image img {
 	width: 350px;
 	height: 350px;
 }
