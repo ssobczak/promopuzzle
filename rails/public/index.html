@@ -5,7 +5,6 @@
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="stylesheet" type="text/css" href="css/promopuzzle.css" />
         <title>Hello World</title>
     </head>
@@ -15,11 +14,76 @@
 
 
         <div class='purgatory'>
-            <div class='strona1'>
+            <div class='menu'>
+                <table id="Table_01" width="720" height="1280" border="0" cellpadding="0" cellspacing="0">
+    
+                    <tr>
+                        
+                        <td colspan="5">
+                            <img src="img/logo_main.gif" width="719" height="209" alt=""> </td>
+                    </tr>
+                    <tr>
+                        
+                    <tr>
+                        <td rowspan="6">
+                            </td>
+                        <td>
+                            <img src="img/min_logo_1.gif" width="248" height="281" alt="" data-bind="click: BrandLogoClicked"></td>
+                        <td rowspan="6">
+                            </td>
+                        <td>
+                            <img src="img/min_logo_2.gif" width="253" height="281" alt="" data-bind="click: BrandLogoClicked"></td>
+                        <td rowspan="6">
+                            </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            </td>
+                        <td>
+                            </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="img/min_logo_3.gif" width="248" height="273" alt="" data-bind="click: BrandLogoClicked"></td>
+                        <td>
+                            <img src="img/min_logo_4.gif" width="253" height="273" alt="" data-bind="click: BrandLogoClicked"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            </td>
+                        <td>
+                            </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="img/min_logo_5.gif" width="248" height="270" alt="" data-bind="click: BrandLogoClicked"></td>
+                        <td>
+                            <img src="img/min_logo_6.gif" width="253" height="270" alt="" data-bind="click: BrandLogoClicked"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            </td>
+                        <td>
+                            </td>
+                    </tr>
+                </table>              
+            </div>
+
+
+            <div class='images'>
                 
-                
+                <!-- ko foreach: Puzzles -->
+                <div class='image'>
+                    <h1 data-bind="text: title"></h1>
+
+                    
+                    
+                </div>
+                <!-- /ko -->
+
 
             </div>
+
         </div>
 
      <!--   <script type="text/javascript" src="phonegap.js"></script> -->
@@ -31,15 +95,13 @@
         
          var ppz = new PromoPuzzle('http://localhost:3000', 1);
 
-
-
+         ppz.ToStage('menu');
+         
 
             //document.addEventListener('deviceready', function() {
           //         var viewModel = new testModel(1);
           //          ko.applyBindings(viewModel, $('.app')[0]);
           //  }, false);
-         
-
 
         </script>
     </body>
