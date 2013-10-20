@@ -3,8 +3,11 @@
 	display: none;
 }
 
-.cutted 
-{
-	position:absolute;
-	clip:rect(0px,20px,40,0px);
+td.top {
+    vertical-align: top;
+    border: 1px solid red;
+}
+td.bottom {
+    vertical-align: bottom;
+    border: 1px solid green;
 }

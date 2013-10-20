@@ -23,10 +23,14 @@ function PromoPuzzle(serverUrl, userId) {
 		}).done(function(data) {
 			var temp = [];
 			var totalPuzzles = 0;
-			
+
 			for(var i=0; i<data.length; ++i){
 				totalPuzzles += data[i].parts.length;
-				temp.push(ko.viewmodel.fromModel(data[i], self.ImagesMappingOptions));
+				var model = ko.viewmodel.fromModel(data[i], self.ImagesMappingOptions);
+				model.PartClickedEvent = function(parts) {
+					console.log(parts[0].id());
+				}
+				temp.push(model);
 			}
 
 			self.TotalPuzzles(totalPuzzles);
@@ -58,7 +62,37 @@ function PromoPuzzle(serverUrl, userId) {
 	self.ImagesMappingOptions = { 
 	    extend: {
 	        "{root}": function(image){
-	            debugger;
+	            
+	            image.PartClickedEvent = undefined;
+	        	image.MappedParts = ko.observableArray();
+
+
+	        	for(var i=0; i<9; ++i) {
+	        		var mappedPart = {};
+	        		mappedPart.position = i;
+	        		debugger;
+	        		mappedPart.parts = image.parts().filter(function(p) { return p.position() == i; });
+	        		mappedPart.amount = mappedPart.parts.length;
+	        		mappedPart.visible = mappedPart.amount > 0;
+	        		mappedPart.imageSource = 'img/' + ( mappedPart.amount ? ( 'kot' + mappedPart.parts[0].image_id().toString()  +mappedPart.position.toString() +'.gif' ) : 'empty.gif' );
+	        		mappedPart.click = function () {
+	        			if (this.amount == 0) { return; }
+	        			
+	        			if (image.PartClickedEvent) {
+	        				image.PartClickedEvent(this.parts);
+	        			}
+	        		};
+
+	        		image.MappedParts.push(mappedPart);
+	        	}
+
+	        	image.MappedPartsRows = ko.observableArray();
+
+	        	image.MappedPartsRows.push(image.MappedParts().slice(0,3));
+	        	image.MappedPartsRows.push(image.MappedParts().slice(3,6));
+	        	image.MappedPartsRows.push(image.MappedParts().slice(6,8));
+
+
 	        }
 	    }
 	};

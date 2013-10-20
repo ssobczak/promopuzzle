@@ -75,9 +75,17 @@
                 <!-- ko foreach: Puzzles -->
                 <div class='image'>
                     <h1 data-bind="text: title"></h1>
-
-                    
-                    
+                    <table border='0' cellpadding="0" cellspacing="0">    
+                        <tbody  data-bind="foreach: MappedPartsRows">
+                        <tr  data-bind='foreach: $data'>
+                            <td width="71" height="85"  data-bind="click: click, style : { 'background-image' : 'url('+ imageSource + ')' }">
+                                <p>
+                                    <span data-bind='text: amount, visible: amount > 1'></span>
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>                
+                    </table>
                 </div>
                 <!-- /ko -->
 
