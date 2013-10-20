@@ -1,0 +1,13 @@
+.purgatory 
+{
+	display: none;
+}
+
+td.top {
+    vertical-align: top;
+    border: 1px solid red;
+}
+td.bottom {
+    vertical-align: bottom;
+    border: 1px solid green;
+}

@@ -1,18 +1,13 @@
 <div class='image'>
 
-<% for img in @images.models: %>
+<% for image in @images.models: %>
 
-	<h1><%= img.get('name') %></h2>
+	<h1><%= image.get('name') %></h2>
 
-	<% for i in [0..9]: %>
+	<% for part in image.get('cparts'): %>
 
-		<% if i%3 == 0 : %>
-        	<div class='row'>
-        <% end %>	
-
+		<h2><%= part.position %></h2>
 	<% end %>
-
-
 
 <% end %>
 

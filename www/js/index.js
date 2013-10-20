@@ -45,5 +45,20 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+
+
     }
+};
+
+
+
+ function testModel() {
+    var self = this;
+
+    self.Title = ko.observable('Test knockout!');
+
+    self.DoSomething = function() {
+        console.log('something!');
+        $('.polska').append('!!! :)');
+    };
 };

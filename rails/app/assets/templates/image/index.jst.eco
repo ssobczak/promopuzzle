@@ -1,0 +1,11 @@
+<div class='image'>
+	<h1>
+		<%= @image.get('name') %>
+	</h1>
+
+	<% for part in @image.cparts.models: %>
+		<h2><%= part.get('position') %>!</h2>
+	<% end %>
+
+</div>
+
