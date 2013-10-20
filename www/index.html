@@ -23,16 +23,20 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
+        <title>PromoPuzzle</title>
+        <script type="text/javascript">
+            function onLoad() {
+                document.addEventListener('deviceready', onDeviceReady, false);
+            }
+
+            function onDeviceReady() {
+                document.write("<script src='assets/application-b47a43310bfaf9b15a523eb8d58c324f.js'><\/script>");
+            }
+        </script>
     </head>
-    <body>
-        <div class="app">
-            <h1>PhoneGap</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-        </div>
+    <body onload="onLoad();">
+        <div id="container">Loading...</div>
+
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
