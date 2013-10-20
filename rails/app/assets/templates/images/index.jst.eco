@@ -1,15 +1,4 @@
 <div class='image'>
 
-<% for image in @images.models: %>
-
-	<h1><%= image.get('name') %></h2>
-
-	<% for part in image.get('cparts'): %>
-
-		<h2><%= part.position %></h2>
-	<% end %>
-
-<% end %>
-
 </div>
 

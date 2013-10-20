@@ -1,4 +1,4 @@
-class Promopuzzle.Views.ImageIndex extends Backbone.View
+class Promopuzzle.Views.Image extends Backbone.View
 
   template: JST['image/index']
 

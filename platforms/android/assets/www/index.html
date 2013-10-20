@@ -46,12 +46,13 @@
                             <tr data-bind='foreach: $data'>
                                 <td width="71" height="85" data-bind="click: click, style : { 'background-image' : 'url('+ imageSource + ')' }"></td>
                             </tr>
-                        </tbody>
+                        </tbody>Even weirder, my app shows the white screen, and after 40 sec sometimes the device ready is finally fired....
+
                     </table>
                 </div><!-- /ko -->
             </div>
             <div class="qr"><div id="qr_image"></div></div>
-        </div><!--   <script type="text/javascript" src="phonegap.js"></script> -->
+        </div>  <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/jquery-2.0.3.min.js">
 </script><script type="text/javascript" src="js/knockout-2.3.0.js">
 </script><script type="text/javascript" src="js/knockout.viewmodel.min.js">
@@ -60,15 +61,10 @@
 </script><script type="text/javascript" src="js/qr/my_qr.js">
 </script><script type="text/javascript">
 
-         var ppz = new PromoPuzzle(window.location.origin, 1);
-
-         ppz.ToStage('menu');
-         
-
-            //document.addEventListener('deviceready', function() {
-          //         var viewModel = new testModel(1);
-          //          ko.applyBindings(viewModel, $('.app')[0]);
-          //  }, false);
+        document.addEventListener('deviceready', function() {
+                var ppz = new PromoPuzzle("http://192.168.42.229:3000", 1);
+                ppz.ToStage('menu');
+            }, false);
 
         </script>
     </body>
