@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="format-detection" content="telephone=no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi">
+        <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="css/promopuzzle.css">
         <title>
             Hello World
@@ -50,7 +51,7 @@
             </div>
             <div class='images'>
                 <!-- ko foreach: Puzzles -->
-                <div class='image'>
+                <div class='image cell'>
                     <h1 data-bind="text: title"></h1>
                     <table border='2' cellpadding="0" cellspacing="0">
                         <tbody data-bind="foreach: MappedPartsRows">
@@ -95,24 +96,27 @@
             </div>
         </div>  
 
-       <!-- <script type="text/javascript" src="phonegap.js"></script> -->
         <script type="text/javascript" src="js/jquery-2.0.3.min.js">
 </script><script type="text/javascript" src="js/knockout-2.3.0.js">
 </script><script type="text/javascript" src="js/knockout.viewmodel.min.js">
 </script><script type="text/javascript" src="js/promopuzzle.js">
         </script><script type="text/javascript" src="js/qr/qrcode.js">
 </script><script type="text/javascript" src="js/qr/my_qr.js">
-</script><script type="text/javascript">
+</script>
 
+    <script type="text/javascript">
+            var ppz = new PromoPuzzle("http://localhost:3000", 1);
+            ppz.ToStage('menu');
+    </script>
 
-    var ppz = new PromoPuzzle("http://localhost:3000", 1);
-                ppz.ToStage('menu');
-
-        document.addEventListener('deviceready', function() {
-                var ppz = new PromoPuzzle("http://192.168.42.229:3000", 1);
-                ppz.ToStage('menu');
-            }, false);
-
-        </script>
+<!-- 
+    <script type="text/javascript" src="phonegap.js"></script>
+    <script type="text/javascript">
+    document.addEventListener('deviceready', function() {
+            var ppz = new PromoPuzzle("http://192.168.42.229:3000", 1);
+            ppz.ToStage('menu');
+        }, false);
+    </script>
+-->
     </body>
 </html>
