@@ -25,3 +25,9 @@ div.cell {
 div.header {
 	text-align: center;
 }
+
+
+#qr_image {
+	width: 350px;
+	height: 350px;
+}
