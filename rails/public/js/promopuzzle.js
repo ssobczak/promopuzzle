@@ -90,7 +90,7 @@ function PromoPuzzle(serverUrl, userId) {
 
 	        	image.MappedPartsRows.push(image.MappedParts().slice(0,3));
 	        	image.MappedPartsRows.push(image.MappedParts().slice(3,6));
-	        	image.MappedPartsRows.push(image.MappedParts().slice(6,8));
+	        	image.MappedPartsRows.push(image.MappedParts().slice(6,9));
 
 
 	        }
