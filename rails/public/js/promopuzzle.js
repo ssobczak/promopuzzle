@@ -28,7 +28,8 @@ function PromoPuzzle(serverUrl, userId) {
 				totalPuzzles += data[i].parts.length;
 				var model = ko.viewmodel.fromModel(data[i], self.ImagesMappingOptions);
 				model.PartClickedEvent = function(parts) {
-					console.log(parts[0].id());
+					update_qrcode(parts[0].id())
+					self.ToStage("qr")
 				}
 				temp.push(model);
 			}
@@ -39,7 +40,6 @@ function PromoPuzzle(serverUrl, userId) {
 			self.ToStage('images');
 		});
 	};
-
 
 	self.Puzzles = ko.observableArray();
 
