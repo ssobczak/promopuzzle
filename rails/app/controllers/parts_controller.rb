@@ -1,7 +1,7 @@
 class PartsController < ApplicationController
 	respond_to :json
 
-	before_filter :verify_ownership, :only => [:update, :destory, :exchange]
+	before_filter :verify_ownership, :only => [:update, :destory]
 
 	def index
 		respond_with Part.where(user_id: user.id)
@@ -24,7 +24,7 @@ class PartsController < ApplicationController
 	end
 
 	def exchange
-		respond_with Part.update(params[:id], user_id: params[:taker_id])
+		respond_with Part.update(params[:id], user_id: params[:user_id])
 	end
 
  	def part_params
