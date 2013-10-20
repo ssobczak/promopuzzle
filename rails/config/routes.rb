@@ -1,9 +1,12 @@
 Promopuzzle::Application.routes.draw do
   scope "api" do
-    resources :parts
+    resources :parts do
+      get "exchange", on: :member
+    end
+
     resources :images
   end
-  
+
   root to: "main#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
