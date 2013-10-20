@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="format-detection" content="telephone=no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi">
+        <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
         <link rel="stylesheet" type="text/css" href="css/promopuzzle.css">
         <title>
             Hello World
@@ -11,61 +12,66 @@
     </head>
     <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
         <div class="app"></div>
-        <div class='purgatory'>
+        <div class='purgatory' width="720" height="239">
             <div class='menu'>
                 <div class="row">
-                    <div class="span12 header">
-                        <img src="img/logo_main.gif" width="720" height="239" alt="">
+                    <div class="span9 header">
+                        <img src="img/logo_main.gif" alt="">
                     </div>
                 </div>
                 <div class="row">
-                    <div class="span10 offset1 cell">
+                    <div class="span9 cell">
                         <img src="img/min_logo_1.gif" class="logo" data-bind='click: ShowPuzzles'> 
-                        <img src="img/min_logo_2.gif" class="logo" data-bind='click: ShowPuzzles'> 
+                        <img src="img/min_logo_5.gif" class="logo" data-bind='click: ShowPuzzles'> 
                     </div>
                 </div>
                 <div class="row">
-                    <div class="span10 offset1 cell">
+                    <div class="span9 cell">
                         <img src="img/min_logo_3.gif" class="logo" data-bind='click: ShowPuzzles'> 
                         <img src="img/min_logo_4.gif" class="logo" data-bind='click: ShowPuzzles'> 
                     </div>
                 </div>                
                 <div class="row">
-                    <div class="span10 offset1 cell">
-                        <img src="img/min_logo_5.gif" class="logo" data-bind='click: ShowPuzzles'> 
+                    <div class="span9 cell">
                         <img src="img/min_logo_6.gif" class="logo" data-bind='click: ShowPuzzles'> 
+                        <img src="img/min_logo_2.gif" class="logo" data-bind='click: ShowPuzzles'> 
                     </div>
                 </div>
             </div>
             <div class='images'>
                 <!-- ko foreach: Puzzles -->
-                <div class='image'>
+                <div class='image cell'>
                     <h1 data-bind="text: title"></h1>
-                    <table border='0' cellpadding="0" cellspacing="0">
+                    <table border='2' cellpadding="0" cellspacing="0">
                         <tbody data-bind="foreach: MappedPartsRows">
                             <tr data-bind='foreach: $data'>
-                                <td width="71" height="85" data-bind="click: click, style : { 'background-image' : 'url('+ imageSource + ')' }"></td>
+                                <td width="120" height="120" data-bind="click: click, style : { 'background' : 'url('+ imageSource + ') no-repeat', 'background-size' : '100%' }"></td>
                             </tr>
-                        </tbody>Even weirder, my app shows the white screen, and after 40 sec sometimes the device ready is finally fired....
-
+                        </tbody>
                     </table>
                 </div><!-- /ko -->
             </div>
-            <div class="qr"><div id="qr_image"></div></div>
-        </div>  <script type="text/javascript" src="phonegap.js"></script>
-        <script type="text/javascript" src="js/jquery-2.0.3.min.js">
+            <div class="qr">
+                <div id="qr_image"></div>
+            </div>
+        </div><script type="text/javascript" src="js/jquery-2.0.3.min.js">
 </script><script type="text/javascript" src="js/knockout-2.3.0.js">
 </script><script type="text/javascript" src="js/knockout.viewmodel.min.js">
 </script><script type="text/javascript" src="js/promopuzzle.js">
-        </script><script type="text/javascript" src="js/qr/qrcode.js">
+</script><script type="text/javascript" src="js/qr/qrcode.js">
 </script><script type="text/javascript" src="js/qr/my_qr.js">
+</script><!-- 
+    <script type="text/javascript">
+            var ppz = new PromoPuzzle("http://localhost:3000", 1);
+            ppz.ToStage('menu');
+    </script>
+ -->
+        <script type="text/javascript" src="phonegap.js">
 </script><script type="text/javascript">
-
-        document.addEventListener('deviceready', function() {
-                var ppz = new PromoPuzzle("http://192.168.42.229:3000", 1);
-                ppz.ToStage('menu');
-            }, false);
-
+document.addEventListener('deviceready', function() {
+            var ppz = new PromoPuzzle("http://192.168.42.205:3000", 1);
+            ppz.ToStage('menu');
+        }, false);
         </script>
     </body>
 </html>

@@ -18,10 +18,15 @@ img.logo {
 }
 
 div.cell {
-	margin: 20px;
 	text-align: center;
 }
 
 div.header {
-	text-align: center;
+		text-align: center;
+}
+
+
+#qr_image {
+	width: 350px;
+	height: 350px;
 }

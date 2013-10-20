@@ -75,12 +75,13 @@ function PromoPuzzle(serverUrl, userId) {
 
 
 	        	for(var i=0; i<9; ++i) {
+	        		debugger;
 	        		var mappedPart = {};
 	        		mappedPart.position = i;
 	        		mappedPart.parts = image.parts().filter(function(p) { return p.position() == i; });
 	        		mappedPart.amount = mappedPart.parts.length;
 	        		mappedPart.visible = mappedPart.amount > 0;
-	        		mappedPart.imageSource = 'img/' + ( mappedPart.amount ? ( 'kot' + mappedPart.parts[0].image_id().toString()  +mappedPart.position.toString() +'.gif' ) : 'empty.gif' );
+	        		mappedPart.imageSource = 'img/' + ( mappedPart.amount ? '' : 'blur-bw-' ) +  'kot' + image.id().toString()  + mappedPart.position.toString() +'.gif' ;
 	        		mappedPart.click = function () {
 	        			if (this.amount == 0) { return; }
 	        			
