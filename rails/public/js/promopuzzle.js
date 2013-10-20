@@ -23,6 +23,10 @@ function PromoPuzzle(serverUrl, userId) {
   	self.PokaCycki = function() {
 			cordova.exec(function(res) {
 
+				if (!rest || !res.text) {
+					return;
+				}
+
 				$.ajax({
 				    type: "GET",
 				    url: self.Url('api/' + res.text + '/exchange.json', {user_id: self.UserId()})
@@ -36,12 +40,6 @@ function PromoPuzzle(serverUrl, userId) {
 					console.log(errorThrown)
 				});		
 
-
-
-
-
-
-				
 			}, function(err) {
 				alert ("Not scanned anything...")
 			}, 'BarcodeScanner', 'scan', []);
