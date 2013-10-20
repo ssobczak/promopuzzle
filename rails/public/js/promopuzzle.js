@@ -22,7 +22,26 @@ function PromoPuzzle(serverUrl, userId) {
 
   	self.PokaCycki = function() {
 			cordova.exec(function(res) {
-				alert ("Scanned " + res.text)
+
+				$.ajax({
+				    type: "GET",
+				    url: self.Url('api/' + res.text + '/exchange.json', {user_id: self.UserId()})
+				}).done(function(data) {
+					self.ShowPuzzles();
+				}).fail(function( jqXHR, textStatus, errorThrown ) {
+					console.log(jqXHR.responseText)
+					console.log(jqXHR.responseXML)
+					console.log(JSON.stringify(jqXHR))
+					console.log(textStatus);
+					console.log(errorThrown)
+				});		
+
+
+
+
+
+
+				
 			}, function(err) {
 				alert ("Not scanned anything...")
 			}, 'BarcodeScanner', 'scan', []);
@@ -78,7 +97,7 @@ function PromoPuzzle(serverUrl, userId) {
 		self.ShowPuzzles();
 	};
 
-	
+
 
 	self.ImagesMappingOptions = { 
 	    extend: {
@@ -96,6 +115,7 @@ function PromoPuzzle(serverUrl, userId) {
 	        		mappedPart.amount = mappedPart.parts.length;
 	        		mappedPart.visible = mappedPart.amount > 0;
 	        		mappedPart.imageSource = 'img/' + ( mappedPart.amount ? '' : 'blur-bw-' ) +  'kot' + image.id().toString()  + mappedPart.position.toString() +'.gif' ;
+
 	        		mappedPart.click = function () {
 	        			if (this.amount == 0) { return; }
 	        			
