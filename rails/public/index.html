@@ -72,7 +72,7 @@
                             <img src="img/two_button_left.gif" width="224" height="200" alt="">
                         </div>
                         <div class="span2 offset5">
-                            <img src="img/two_button_right.gif" width="224" height="200" alt="">
+                            <img src="img/two_button_right.gif" width="224" height="200" alt="" data-bind="click: PokaCycki">
                         </div>
                     </div>
                 </div>
@@ -83,17 +83,22 @@
 </script><script type="text/javascript" src="js/promopuzzle.js">
 </script><script type="text/javascript" src="js/qr/qrcode.js">
 </script><script type="text/javascript" src="js/qr/my_qr.js">
-</script><script type="text/javascript">
-var ppz = new PromoPuzzle("http://localhost:3000", 1);
-            ppz.ToStage('menu');
-        </script><!--
-        <script type="text/javascript" src="phonegap.js">
-        </script><script type="text/javascript">
-         document.addEventListener('deviceready', function() {
-            var ppz = new PromoPuzzle("http://192.168.42.205:3000", 1);
-            ppz.ToStage('menu');
-        }, false);
+</script>
+        <!--
+            <script type="text/javascript">
+
+            var ppz = new PromoPuzzle("http://localhost:3000", 1);
+                ppz.ToStage('menu');
+            </script>
+        -->
+
+        <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript">
+             document.addEventListener('deviceready', function() {
+                var ppz = new PromoPuzzle("http://192.168.42.221:3000", 1);
+                ppz.ToStage('menu');
+            }, false);
         </script>
-    -->
+    
     </body>
 </html>

@@ -20,6 +20,14 @@ function PromoPuzzle(serverUrl, userId) {
     	self.ToStage('menu');
     }
 
+  	self.PokaCycki = function() {
+			cordova.exec(function(res) {
+				alert ("Scanned " + res.text)
+			}, function(err) {
+				alert ("Not scanned anything...")
+			}, 'BarcodeScanner', 'scan', []);
+		}
+
 	self.ShowPuzzles = function() {
 		console.log(self.Url('api/images.json', {user_id: self.UserId()}))
 		$.ajax({
@@ -42,7 +50,7 @@ function PromoPuzzle(serverUrl, userId) {
 
 			self.TotalPuzzles(totalPuzzles);
 			self.Puzzles(temp);
-debugger;
+
 			self.ToStage('images2');
 		}).fail(function( jqXHR, textStatus, errorThrown ) {
 			console.log(jqXHR.responseText)
