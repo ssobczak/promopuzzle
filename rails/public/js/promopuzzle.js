@@ -81,7 +81,7 @@ function PromoPuzzle(serverUrl, userId) {
 	        		mappedPart.parts = image.parts().filter(function(p) { return p.position() == i; });
 	        		mappedPart.amount = mappedPart.parts.length;
 	        		mappedPart.visible = mappedPart.amount > 0;
-	        		mappedPart.imageSource = 'img/' + ( mappedPart.amount ? '' : 'bw-' ) +  'kot' + image.id().toString()  + mappedPart.position.toString() +'.gif' ;
+	        		mappedPart.imageSource = 'img/' + ( mappedPart.amount ? '' : 'blur-bw-' ) +  'kot' + image.id().toString()  + mappedPart.position.toString() +'.gif' ;
 	        		mappedPart.click = function () {
 	        			if (this.amount == 0) { return; }
 	        			
