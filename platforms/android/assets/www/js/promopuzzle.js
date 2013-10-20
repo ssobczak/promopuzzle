@@ -28,7 +28,8 @@ function PromoPuzzle(serverUrl, userId) {
 				totalPuzzles += data[i].parts.length;
 				var model = ko.viewmodel.fromModel(data[i], self.ImagesMappingOptions);
 				model.PartClickedEvent = function(parts) {
-					console.log(parts[0].id());
+					update_qrcode(parts[0].id())
+					self.ToStage("qr")
 				}
 				temp.push(model);
 			}
@@ -40,11 +41,9 @@ function PromoPuzzle(serverUrl, userId) {
 		});
 	};
 
-
 	self.Puzzles = ko.observableArray();
 
 	self.ToStage = function(name, model) {
-		debugger;
 		var stageHtml = $('.purgatory').find('.' + name).html();
 		$('.app').html(stageHtml);
 		if (!model) {
@@ -70,7 +69,6 @@ function PromoPuzzle(serverUrl, userId) {
 	        	for(var i=0; i<9; ++i) {
 	        		var mappedPart = {};
 	        		mappedPart.position = i;
-	        		debugger;
 	        		mappedPart.parts = image.parts().filter(function(p) { return p.position() == i; });
 	        		mappedPart.amount = mappedPart.parts.length;
 	        		mappedPart.visible = mappedPart.amount > 0;
@@ -90,7 +88,7 @@ function PromoPuzzle(serverUrl, userId) {
 
 	        	image.MappedPartsRows.push(image.MappedParts().slice(0,3));
 	        	image.MappedPartsRows.push(image.MappedParts().slice(3,6));
-	        	image.MappedPartsRows.push(image.MappedParts().slice(6,8));
+	        	image.MappedPartsRows.push(image.MappedParts().slice(6,9));
 
 
 	        }

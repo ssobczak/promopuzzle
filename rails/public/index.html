@@ -14,16 +14,26 @@
         <div class='purgatory'>
             <div class='menu'>
                 <div class="row">
-                    <div class="span12">
+                    <div class="span12 header">
                         <img src="img/logo_main.gif" width="720" height="239" alt="">
                     </div>
                 </div>
                 <div class="row">
-                    <div class="span5 offset1">
-                        <img src="img/min_logo_1.gif" width="248" height="281" alt="" data-bind='click: ShowPuzzles'> <img src="img/min_logo_3.gif" width="248" height="281" alt="" data-bind='click: ShowPuzzles'> <img src="img/min_logo_5.gif" width="248" height="281" alt="" data-bind='click: ShowPuzzles'>
+                    <div class="span10 offset1 cell">
+                        <img src="img/min_logo_1.gif" class="logo" data-bind='click: ShowPuzzles'> 
+                        <img src="img/min_logo_2.gif" class="logo" data-bind='click: ShowPuzzles'> 
                     </div>
-                    <div class="span5">
-                        <img src="img/min_logo_2.gif" width="248" height="281" alt="" data-bind='click: ShowPuzzles'> <img src="img/min_logo_4.gif" width="248" height="281" alt="" data-bind='click: ShowPuzzles'> <img src="img/min_logo_6.gif" width="248" height="281" alt="" data-bind='click: ShowPuzzles'>
+                </div>
+                <div class="row">
+                    <div class="span10 offset1 cell">
+                        <img src="img/min_logo_3.gif" class="logo" data-bind='click: ShowPuzzles'> 
+                        <img src="img/min_logo_4.gif" class="logo" data-bind='click: ShowPuzzles'> 
+                    </div>
+                </div>                
+                <div class="row">
+                    <div class="span10 offset1 cell">
+                        <img src="img/min_logo_5.gif" class="logo" data-bind='click: ShowPuzzles'> 
+                        <img src="img/min_logo_6.gif" class="logo" data-bind='click: ShowPuzzles'> 
                     </div>
                 </div>
             </div>
@@ -50,7 +60,7 @@
 </script><script type="text/javascript" src="js/qr/my_qr.js">
 </script><script type="text/javascript">
 
-         var ppz = new PromoPuzzle('http://localhost:3000', 1);
+         var ppz = new PromoPuzzle(window.location.origin, 1);
 
          ppz.ToStage('menu');
          

@@ -1,108 +1,66 @@
 <!DOCTYPE html>
-
-<html> 
+<html>
     <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/promopuzzle.css" />
-        <title>Hello World</title>
+        <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi">
+        <link rel="stylesheet" type="text/css" href="css/promopuzzle.css">
+        <title>
+            Hello World
+        </title>
     </head>
-    <body>
-        <div class="app">
-        </div>
-
-
+    <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+        <div class="app"></div>
         <div class='purgatory'>
             <div class='menu'>
-                <table id="Table_01" width="720" height="1280" border="0" cellpadding="0" cellspacing="0">
-    
-                    <tr>
-                        
-                        <td colspan="5">
-                            <img src="img/logo_main.gif" width="719" height="209" alt=""> </td>
-                    </tr>
-                    <tr>
-                        
-                    <tr> 
-                        <td rowspan="6">
-                            </td>
-                        <td>
-                            <img src="img/min_logo_1.gif" width="248" height="281" alt="" data-bind="click: BrandLogoClicked"></td>
-                        <td rowspan="6">
-                            </td>
-                        <td>
-                            <img src="img/min_logo_2.gif" width="253" height="281" alt="" data-bind="click: BrandLogoClicked"></td>
-                        <td rowspan="6">
-                            </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            </td>
-                        <td>
-                            </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="img/min_logo_3.gif" width="248" height="273" alt="" data-bind="click: BrandLogoClicked"></td>
-                        <td>
-                            <img src="img/min_logo_4.gif" width="253" height="273" alt="" data-bind="click: BrandLogoClicked"></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            </td>
-                        <td>
-                            </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="img/min_logo_5.gif" width="248" height="270" alt="" data-bind="click: BrandLogoClicked"></td>
-                        <td>
-                            <img src="img/min_logo_6.gif" width="253" height="270" alt="" data-bind="click: BrandLogoClicked"></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            </td>
-                        <td>
-                            </td>
-                    </tr>
-                </table>              
+                <div class="row">
+                    <div class="span12 header">
+                        <img src="img/logo_main.gif" width="720" height="239" alt="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span10 offset1 cell">
+                        <img src="img/min_logo_1.gif" class="logo" data-bind='click: ShowPuzzles'> 
+                        <img src="img/min_logo_2.gif" class="logo" data-bind='click: ShowPuzzles'> 
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span10 offset1 cell">
+                        <img src="img/min_logo_3.gif" class="logo" data-bind='click: ShowPuzzles'> 
+                        <img src="img/min_logo_4.gif" class="logo" data-bind='click: ShowPuzzles'> 
+                    </div>
+                </div>                
+                <div class="row">
+                    <div class="span10 offset1 cell">
+                        <img src="img/min_logo_5.gif" class="logo" data-bind='click: ShowPuzzles'> 
+                        <img src="img/min_logo_6.gif" class="logo" data-bind='click: ShowPuzzles'> 
+                    </div>
+                </div>
             </div>
-
-
             <div class='images'>
-                
                 <!-- ko foreach: Puzzles -->
                 <div class='image'>
                     <h1 data-bind="text: title"></h1>
-                    <table>    
-                        <tbody  data-bind="foreach: MappedPartsRows">
-                        <tr  data-bind='foreach: $data'>
-                            <td>
-                                <p data-bind="click: click">
-                                    <span data-bind='text: amount'></span>
-                                    <img data-bind="attr: {src : imageSource }" />
-                                </p>
-                            </td>
-                        </tr>
-                    </tbody>                
+                    <table border='0' cellpadding="0" cellspacing="0">
+                        <tbody data-bind="foreach: MappedPartsRows">
+                            <tr data-bind='foreach: $data'>
+                                <td width="71" height="85" data-bind="click: click, style : { 'background-image' : 'url('+ imageSource + ')' }"></td>
+                            </tr>
+                        </tbody>
                     </table>
-                </div>
-                <!-- /ko -->
-
-
+                </div><!-- /ko -->
             </div>
+            <div class="qr"><div id="qr_image"></div></div>
+        </div><!--   <script type="text/javascript" src="phonegap.js"></script> -->
+        <script type="text/javascript" src="js/jquery-2.0.3.min.js">
+</script><script type="text/javascript" src="js/knockout-2.3.0.js">
+</script><script type="text/javascript" src="js/knockout.viewmodel.min.js">
+</script><script type="text/javascript" src="js/promopuzzle.js">
+        </script><script type="text/javascript" src="js/qr/qrcode.js">
+</script><script type="text/javascript" src="js/qr/my_qr.js">
+</script><script type="text/javascript">
 
-        </div>
-
-     <!--   <script type="text/javascript" src="phonegap.js"></script> -->
-        <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
-        <script type="text/javascript" src="js/knockout-2.3.0.js"></script>
-        <script type="text/javascript" src="js/knockout.viewmodel.min.js"></script>
-        <script type="text/javascript" src="js/promopuzzle.js"></script>
-        <script type="text/javascript">
-        
-         var ppz = new PromoPuzzle('http://localhost:3000', 1);
+         var ppz = new PromoPuzzle(window.location.origin, 1);
 
          ppz.ToStage('menu');
          

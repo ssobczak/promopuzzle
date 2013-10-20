@@ -44,7 +44,6 @@ function PromoPuzzle(serverUrl, userId) {
 	self.Puzzles = ko.observableArray();
 
 	self.ToStage = function(name, model) {
-		debugger;
 		var stageHtml = $('.purgatory').find('.' + name).html();
 		$('.app').html(stageHtml);
 		if (!model) {
@@ -70,7 +69,6 @@ function PromoPuzzle(serverUrl, userId) {
 	        	for(var i=0; i<9; ++i) {
 	        		var mappedPart = {};
 	        		mappedPart.position = i;
-	        		debugger;
 	        		mappedPart.parts = image.parts().filter(function(p) { return p.position() == i; });
 	        		mappedPart.amount = mappedPart.parts.length;
 	        		mappedPart.visible = mappedPart.amount > 0;

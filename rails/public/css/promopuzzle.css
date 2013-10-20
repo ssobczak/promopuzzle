@@ -11,3 +11,17 @@ td.bottom {
     vertical-align: bottom;
     border: 1px solid green;
 }
+
+img.logo {
+	width: 280px;
+	height: 280px;
+}
+
+div.cell {
+	margin: 20px;
+	text-align: center;
+}
+
+div.header {
+	text-align: center;
+}
